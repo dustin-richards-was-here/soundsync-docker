@@ -1,6 +1,7 @@
 FROM ubuntu:22.04
 
-ADD https://soundsync.app/download/soundsync-deb-x64.deb /
+# currently locked to version 0.4.16
+ADD https://github.com/geekuillaume/soundsync/releases/download/v0.4.16/soundsync-amd64-0.4.16.deb /
 
 # avoid prompts for tzdata
 ENV TZ=America/Denver
@@ -10,7 +11,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update
-RUN apt install /soundsync-deb-x64.deb --yes
+RUN apt install /soundsync* --yes
 RUN apt install xdg-utils pulseaudio-utils --yes
 
 # below this line inspired by (stolen from) https://github.com/TheBiggerGuy/docker-pulseaudio-example

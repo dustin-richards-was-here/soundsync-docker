@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# stolen from https://github.com/TheBiggerGuy/docker-pulseaudio-example
 
 set -x
 
