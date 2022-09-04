@@ -3,11 +3,7 @@ FROM ubuntu:22.04
 # currently locked to version 0.4.16
 ADD https://github.com/geekuillaume/soundsync/releases/download/v0.4.16/soundsync-amd64-0.4.16.deb /
 
-# avoid prompts for tzdata
-ENV TZ=America/Denver
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-# avoid prompts for keyboard-configuration
+# suppress prompts for various packages during apt install
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update
