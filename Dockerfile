@@ -13,6 +13,7 @@ RUN apt update
 RUN apt install /soundsync-deb-x64.deb --yes
 RUN apt install xdg-utils pulseaudio-utils --yes
 
+# below this line inspired by (stolen from) https://github.com/TheBiggerGuy/docker-pulseaudio-example
 # Set up the user
 ENV UNAME pacat
 
